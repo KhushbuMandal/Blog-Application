@@ -52,7 +52,8 @@ const register = async (req , res) => {
         
         
     } catch (error) {
-        res.status(500).json({message : "Error in Registartion"})
+        // res.status(500).json({message : "Error in Registartion"})
+        next(error);
     }
 }
 
@@ -94,7 +95,8 @@ const login = async (req , res) => {
         
         
     } catch (error) {
-        res.status(500).json({message : "Error in Registartion"})
+        // res.status(500).json({message : "Error in Registartion"})
+        next(error);
     }
 }
 

@@ -42,7 +42,13 @@ const register = async (req , res) => {
             password
         });
 
-        res.status(201).json({message : userCreated})
+        //res.status(201).json({message : userCreated})
+        res.status(201).json({
+            // message : userCreated , 
+             message : "Registration Sucessful !!!",
+             token : await userCreated.generateToken(), 
+             userId : userCreated._id.toString()
+        });
         
         
     } catch (error) {

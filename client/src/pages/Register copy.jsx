@@ -15,10 +15,10 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-export function Login() {
+export function Register() {
 
   const [user , setUser] = useState({
-   
+    username: "",
     email: "",
     password: "",
   });
@@ -48,14 +48,25 @@ export function Login() {
         <div>
           <Card className="w-[350px] card-color" >
             <CardHeader>
-              <CardTitle className="text-white">Login to your Account</CardTitle>
+              <CardTitle className="text-white">Create your account</CardTitle>
               <CardDescription>Start your blogging journey with us.</CardDescription>
             </CardHeader>
             <form onSubmit={handleSubmit}>
             <CardContent>
               
                 <div className="grid w-full items-center gap-4">
-                  
+                  <div className="flex flex-col space-y-1.5">
+                    <Label htmlFor="name" className="text-white">Name</Label>
+                    <Input 
+                    id="name" 
+                    type="text"
+                    name="username"
+                    placeholder="Enter your name..." 
+                    className="bg-black text-white" 
+                    value={user.username}
+                    onChange={handleInput}
+                    required/>
+                  </div>
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="email" className="text-white">Email</Label>
                     <Input 
@@ -83,15 +94,15 @@ export function Login() {
               </CardContent>
               
             <CardFooter className="flex justify-between">
-              <Button type="submit" className="bg-black">Login</Button>
+              <Button type="submit" className="bg-black">Register</Button>
             </CardFooter>
             </form>
             
           </Card>
           <div className="text-center text-sm text-muted-foreground mt-4 text-white">
-            Do not have an account?{" "}
-            <Link to="/register" className="font-semibold text-primary hover:underline text-gray-500">
-              Register
+            Already have an account?{" "}
+            <Link to="/login" className="font-semibold text-primary hover:underline text-gray-500">
+              Login
             </Link>
           </div>
         </div>

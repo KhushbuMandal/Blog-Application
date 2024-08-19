@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import {Login} from "./pages/Login";
 import {Register  } from "./pages/Register";
-import Contact from "./pages/Contact";
+import {Contact} from "./pages/Contact";
 import Navbar from "./_components/Navbar"
 
 function App() {

@@ -21,6 +21,14 @@ body {
   background-color: #0e1526;
 }
 
+.home-top-color {
+  background-color: #b5b7b9;
+}
+
+.style-red {
+  background-color: #7a4438;
+}
+
 
 
 @layer base {

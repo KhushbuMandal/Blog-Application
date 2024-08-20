@@ -29,7 +29,7 @@ export default function Component() {
             <Link to="/about" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
               About
             </Link>
-            <Link to="#" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
+            <Link to="/create-blog" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
               Blogs
             </Link>
             <Link to="/contact" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
@@ -46,7 +46,7 @@ export default function Component() {
           <Link to="/about" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
             About
           </Link>
-          <Link to="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+          <Link to="/create-blog" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
             Blogs
           </Link>
           <Link to="/contact" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>

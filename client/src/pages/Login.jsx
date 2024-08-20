@@ -2,6 +2,7 @@
 import * as React from "react"
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import {useNavigate} from "react-router-dom"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -23,6 +24,8 @@ export function Login() {
     password: "",
   });
 
+  const navigate = useNavigate();
+
 
   const handleInput = (event) => {
     console.log(event);
@@ -35,9 +38,33 @@ export function Login() {
     })
   };
 
-  const handleSubmit =  (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(user);
+
+    try {
+      const response = await fetch(`http://localhost:3000/api/user/login` , {
+        method:"POST",
+        headers :{
+          "Content-Type":"application/json",
+        },
+        body:JSON.stringify(user),
+      });
+  
+      console.log(response)
+
+      if (response.ok){
+
+        setUser({
+          email : "",
+          password : "",
+        })
+        alert("Login Sucessfull !!!");
+        navigate("/create-blog");
+      }  
+    } catch (error) {
+      console.log("Login Error" , error);
+    }
   }
 
 

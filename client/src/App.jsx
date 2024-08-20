@@ -7,6 +7,7 @@ import {Login} from "./pages/Login";
 import {Register  } from "./pages/Register";
 import {Contact} from "./pages/Contact";
 import Navbar from "./_components/Navbar"
+import Blog from "./pages/Blog";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
+          <Route path="/create-blog" element={<Blog/>}/>
           
         </Routes>
       </BrowserRouter>

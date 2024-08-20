@@ -2,6 +2,7 @@
 import * as React from "react"
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import {useNavigate} from "react-router-dom"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -23,6 +24,8 @@ export function Register() {
     password: "",
   });
 
+  const navigate = useNavigate();
+
 
   const handleInput = (event) => {
     console.log(event);
@@ -35,9 +38,35 @@ export function Register() {
     })
   };
 
-  const handleSubmit =  (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(user);
+
+    try {
+      const response = await fetch(`http://localhost:3000/api/user/register` , {
+        method:"POST",
+        headers :{
+          "Content-Type":"application/json",
+        },
+        body:JSON.stringify(user),
+      });
+  
+      console.log(response)
+
+      if (response.ok){
+
+        setUser({
+          username : "",
+          email : "",
+          phone : "",
+          password : "",
+        })
+        alert("Registration Sucessfull !!!");
+        navigate("/login");
+      }  
+    } catch (error) {
+      console.log("Registration Error" , error);
+    }
   }
 
 
